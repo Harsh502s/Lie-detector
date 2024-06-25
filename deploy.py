@@ -9,7 +9,7 @@ import nltk
 @st.cache_data()
 @st.cache_resource()
 def load_model():
-    model=tf.keras.models.load_model(r"D:\Data Science\lie\lie_detector_1.h5")
+    model=tf.keras.models.load_model(r"lie_detector_1.h5")
     return model
 
 loaded_model = load_model()
