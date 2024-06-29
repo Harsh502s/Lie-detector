@@ -1,6 +1,6 @@
 streamlit>=0.82.0
 streamlit-webrtc>=0.33.0
-numpy>=1.19.5
+numpy >= 1.22, <1.24
 pandas>=1.2.4
 tensorflow>=2.4.0
 requests>=2.25.1
