@@ -66,9 +66,10 @@ def preprocess_quote(quote):
     
   return word_count,word_length,adv_count,adj_count,noun_count,verb_count,det_count,sentiment, named_entities_count
 
-st.title("Lie Detector")
-sentence = st.text_input("Enter a sentence:")
-if st.button("Detect Lie"):
+st.markdown("<h1 style='text-align: center;'>Lie Detector</h1>", unsafe_allow_html=True)
+st.markdown("<h3>Enter a sentence:</h3>", unsafe_allow_html=True)
+sentence = st.text_input("")
+if st.button("Detect Lie", use_container_width = True):
     # Call your functions and make the prediction
     processed_sentence = pd.DataFrame(preprocess_quote(sentence))
     #st.write(processed_sentence.transpose())
@@ -76,12 +77,12 @@ if st.button("Detect Lie"):
     prediction = loaded_model.predict(processed_sentence.transpose())
 
     new_quote_prediction_class = np.argmax(prediction)  
-    st.write(new_quote_prediction_class)  
+    #st.write(new_quote_prediction_class)  
 
     # Print the prediction
     if new_quote_prediction_class == 0:
-      st.write("The new quote is likely to be true.")
+      st.write("The new quote is **likely to be true**.")
     elif new_quote_prediction_class == 1:
-      st.write("The new quote is likely to be mostly true or half-true.")
+      st.write("The new quote is **half-true**.")
     else:
-      st.write("The new quote is likely to be false or pants-on-fire.")
+      st.write("The new quote is **likely to be false or pants-on-fire**.")
