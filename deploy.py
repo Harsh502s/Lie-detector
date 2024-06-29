@@ -14,13 +14,13 @@ def load_model():
 
 loaded_model = load_model()
 
-#nltk.download('averaged_perceptron_tagger') #used for tagging words with their parts of speech (POS)
-#nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger') #used for tagging words with their parts of speech (POS)
+nltk.download('wordnet')
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 # Download VADER lexicon (if not already downloaded)
-# nltk.download('vader_lexicon')
+nltk.download('vader_lexicon')
 import spacy
 nlp = spacy.load("en_core_web_sm")
 
