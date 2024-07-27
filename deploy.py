@@ -1,16 +1,16 @@
 import streamlit as st
 import tensorflow as tf
-import requests
 import numpy as np
 import pandas as pd
 import nltk
-
-import subprocess
+import spacy
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from subprocess import run
 
 
 @st.cache_resource
 def download_en_core_web_sm():
-    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+    run(["python", "-m", "spacy", "download", "en_core_web_sm"])
     return
 
 
@@ -31,11 +31,9 @@ nltk.download(
 )  # used for tagging words with their parts of speech (POS)
 nltk.download("wordnet")
 
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
 # Download VADER lexicon (if not already downloaded)
 nltk.download("vader_lexicon")
-import spacy
 
 nlp = spacy.load("en_core_web_sm")
 
